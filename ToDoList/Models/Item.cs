@@ -6,6 +6,13 @@ namespace ToDoList.Models
   {
     public string Description { get; set; }
     private static List<Item> _instances = new List<Item> {};
+
+    public Item (string description)
+    {
+      Description = description;
+      _instances.Add(this);
+    }
+
     public static List<Item> GetAll()
     {
       return _instances;
@@ -13,13 +20,8 @@ namespace ToDoList.Models
 
     public static void ClearAll()
     {
-      _instances.Clear(); //Clear() is a build-in List method
+      _instances.Clear();
     }
 
-    public Item(string description)
-    {
-      Description = description;
-      _instances.Add(this); 
-    }
   }
 }
